@@ -13,7 +13,6 @@ var timerStop = false;
 var initials = localStorage.getItem("info");
 var infoInputArray = [];
 var infoArray = [];
-var gameOver = false;
 
 // var scoreEntry = JSON.parse(localStorage.getItem("info"));
 
@@ -182,7 +181,7 @@ function removeBtn() {
 }
 //this function displays the scores, however needs more fine tuning
 function viewScore() {
-  //trying make all the score into a list item
+  //trying to make all the score into a list item
   var scoreDisplay = document.createElement("div");
   var scoreListContainer = document.createElement("li");
   scoreListContainer.innerText = infoArray;
@@ -199,9 +198,6 @@ function viewScore() {
 }
 //this ends the quiz, stops the timer, and prompts you to enter your initials
 function quizOver() {
-  if (timeLeft <= 0 || questionIndex === questionArray.length) {
-    gameOver = true;
-  }
   timerStop = true;
   questionCard.textContent = "";
   questionsContainer.innerHTML =
