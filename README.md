@@ -2,13 +2,6 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
 I made this project to incorporate lessons learned using form/input elements, local storage, and practice more query selectors. This project creates a fun, timed quiz to test a users basic knowledge of web development. I learned how to create form/input elements with proper type values, and I learned how to create a timer element.
 
 ## Installation
