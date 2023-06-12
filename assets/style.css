@@ -1,0 +1,23 @@
+html,
+body {
+  height: 100%
+}
+
+body{
+  background-color: antiquewhite;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.timer{
+  color:black;
+  font-size: 30px;
+}
+
+.question{
+  color: black;
+  font-size: 25px;
+  margin:auto;
+}
+.button{
+  color:brown;
+}
