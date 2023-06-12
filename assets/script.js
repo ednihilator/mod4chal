@@ -13,6 +13,7 @@ var timerStop = false;
 var initials = localStorage.getItem("info");
 var infoInputArray = [];
 var infoArray = [];
+var gameOver = false;
 
 // var scoreEntry = JSON.parse(localStorage.getItem("info"));
 
@@ -100,12 +101,14 @@ function hideElement(element) {
 function showElement(element) {
   element.style.display = "block";
 }
-
 //this function displays questions, and will display a new question if right/wrong and update your score
 function displayQuestion() {
   hideElement(scoreContainer);
+  console.log(questionCard);
+  console.log("question index is " + questionIndex);
   //the next two lines show the current question, then removes it
   questionCard.textContent = questionArray[questionIndex].question;
+
   questionsContainer.innerHTML = "";
   //this for loop displays the next question, and adds answer buttons as children to the answers
   for (
@@ -133,8 +136,7 @@ function displayQuestion() {
       //this if statement compares users selected answer with the list of answers
       if (
         clickedAnswer === questionArray[questionIndex].correct &&
-        questionIndex < questionArray.length - 1 &&
-        timeLeft > 0
+        questionIndex < questionArray.length - 1
       ) {
         //adds to your score and moves to next question
         questionIndex++;
@@ -143,19 +145,25 @@ function displayQuestion() {
         displayQuestion();
         //this checks for the end conditions of the game via timer and question length
       } else if (
-        (clickedAnswer === questionArray[questionIndex].correct &&
-          questionIndex === questionArray.length - 1) ||
-        timeLeft <= 0
+        clickedAnswer !== questionArray[questionIndex].correct &&
+        questionIndex < questionArray.length - 1
       ) {
-        score++;
-        //console.log("this is the end of the quiz");
-        quizOver();
-      } else if (timeLeft > 0) {
         //moves to next question while not adding to your score, and subtracting 5 seconds
         questionIndex++;
         displayQuestion();
         //console.log("false");
         timeLeft -= 5;
+      } else if (
+        (clickedAnswer !== questionArray[questionIndex].correct &&
+          questionIndex === questionArray.length - 1) ||
+        timeLeft <= 0
+      ) {
+        //moves to next question while not adding to your score, and subtracting 5 seconds
+
+        quizOver();
+      } else if (questionIndex === questionArray.length - 1 || timeLeft <= 0) {
+        console.log("this is the end of the quiz");
+        quizOver();
       }
     });
   }
@@ -191,6 +199,9 @@ function viewScore() {
 }
 //this ends the quiz, stops the timer, and prompts you to enter your initials
 function quizOver() {
+  if (timeLeft <= 0 || questionIndex === questionArray.length) {
+    gameOver = true;
+  }
   timerStop = true;
   questionCard.textContent = "";
   questionsContainer.innerHTML =
