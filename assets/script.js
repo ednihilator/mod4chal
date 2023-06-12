@@ -233,14 +233,3 @@ initialBtn.addEventListener("click", function (event) {
   //this is adding the new info into the local storage
   localStorage.setItem("info", JSON.stringify(infoArray));
 });
-
-// document.querySelector("form").addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   console.log("Submit button works for initials");
-
-//   initials = document.querySelector("#inputInitials").value;
-
-//   localStorage.setItem("info", JSON.stringify([initials, score]));
-//   console.log("My initials info is " + initials);
-//   initials = JSON.parse(localStorage.getItem("info"));
-// });
