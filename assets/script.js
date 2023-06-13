@@ -17,7 +17,7 @@ var infoArray = [];
 // var scoreEntry = JSON.parse(localStorage.getItem("info"));
 
 var questionIndex = 0;
-var timeLeft = 75;
+var timeLeft = 40;
 var score = 0;
 
 //the question array contains all my questions and answers, and the correct answer as objects
