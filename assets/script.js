@@ -226,10 +226,11 @@ initialBtn.addEventListener("click", function (event) {
   initials = document.querySelector("#inputInitials").value;
   //this takes that input and stores it with a score
   infoInputArray = [initials, score];
+  console.log(infoInputArray);
   //this updates my info array with info in local storage
   infoArray = JSON.parse(localStorage.getItem("info"));
   //this pushes that new score and initials into an array of many scores and initials
   infoArray.push(infoInputArray);
   //this is adding the new info into the local storage
-  localStorage.setItem("info", JSON.stringify(infoArray));
+  localStorage.setItem("info", JSON.stringify(infoInputArray));
 });
