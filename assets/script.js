@@ -234,3 +234,4 @@ initialBtn.addEventListener("click", function (event) {
   //this is adding the new info into the local storage
   localStorage.setItem("info", JSON.stringify(infoInputArray));
 });
+//testing
